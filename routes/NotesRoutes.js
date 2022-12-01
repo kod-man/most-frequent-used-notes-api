@@ -12,7 +12,7 @@ router.get("/all", async (req, res) => {
   }
 });
 router.post("/add", async (req, res) => {
-  const { note, description } = req.body;
+  const { code, description } = req.body;
   try {
     const { errors, valid } = validateNote(req.body);
     if (!valid) {
@@ -20,7 +20,7 @@ router.post("/add", async (req, res) => {
     }
     const newNote = new Notes({
       description,
-      note,
+      code,
     });
     const savedNote = await newNote.save();
     res.status(200).json(savedNote);
