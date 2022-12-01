@@ -12,14 +12,13 @@ router.get("/all", async (req, res) => {
   }
 });
 router.post("/add", async (req, res) => {
-  const { keyword, note, description } = req.body;
+  const { note, description } = req.body;
   try {
     const { errors, valid } = validateNote(req.body);
     if (!valid) {
       return res.status(400).json(errors);
     }
     const newNote = new Notes({
-      keyword,
       description,
       note,
     });

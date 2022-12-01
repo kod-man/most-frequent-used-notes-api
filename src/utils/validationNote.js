@@ -1,8 +1,8 @@
 const validateNote = (data) => {
-  const { keyword, note } = data;
+  const { description, note } = data;
   const errors = {};
-  if (keyword.trim() === "") {
-    errors.keyword = "Keyword cannot be empty";
+  if (description.trim() === "") {
+    errors.description = "Description cannot be empty";
   }
   if (note.trim() === "") {
     errors.note = "Note cannot be empty";

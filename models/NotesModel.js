@@ -3,13 +3,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const NotesSchema = new Schema(
   {
-    keyword: {
-      type: String,
-      required: true,
-    },
     description: {
       type: String,
-      required: false,
+      required: true,
     },
     note: {
       type: String,
