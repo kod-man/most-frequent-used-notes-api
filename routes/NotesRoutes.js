@@ -1,12 +1,13 @@
 const express = require("express");
+const Notes = require("../models/NotesModel");
 const router = express.Router();
 
-router.post("/your-route", (req, res) => {
-  console.log(req.body);
+router.get("/all", async (req, res) => {
   try {
-    res.send("Hello World");
+    const getAllNotes = await Notes.find();
+    res.status(200).json(getAllNotes);
   } catch (error) {
-    console.log(error);
+    res.status(500).json({ error: error.message });
   }
 });
 
