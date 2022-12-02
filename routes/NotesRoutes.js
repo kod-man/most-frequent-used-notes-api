@@ -29,4 +29,13 @@ router.post("/add", async (req, res) => {
   }
 });
 
+router.delete("/delete/:id", async (req, res) => {
+  try {
+    const deletedNote = await Notes.findByIdAndDelete(req.params.id);
+    res.status(200).json(deletedNote);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = router;
